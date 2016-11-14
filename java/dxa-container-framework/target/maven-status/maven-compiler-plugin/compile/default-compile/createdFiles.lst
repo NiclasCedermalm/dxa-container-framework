@@ -1,0 +1,8 @@
+com/sdl/dxa/container/model/ContainerItemMetadata.class
+com/sdl/dxa/container/model/ContainerRegionModel.class
+com/sdl/dxa/container/container/ContainerController.class
+com/sdl/dxa/container/model/AbstractContainerModel.class
+com/sdl/dxa/container/ContainerPageBuilder.class
+com/sdl/dxa/container/model/ContainerItem.class
+com/sdl/dxa/container/model/ContainerMetadata.class
+com/sdl/dxa/container/model/ContainerModel.class
