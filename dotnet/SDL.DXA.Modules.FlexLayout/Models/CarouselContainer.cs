@@ -6,6 +6,9 @@ using System.Web;
 
 namespace SDL.DXA.Modules.FlexLayout.Models
 {
+    /// <summary>
+    /// Carousel Container
+    /// </summary>
     [SemanticEntity(EntityName = "CarouselContainer", Vocab = CoreVocabulary, Prefix = "c")]
     public class CarouselContainer : LayoutContainer
     {

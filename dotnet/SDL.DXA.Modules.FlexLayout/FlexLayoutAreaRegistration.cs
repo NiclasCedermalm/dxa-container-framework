@@ -8,6 +8,9 @@ using System.Web;
 
 namespace SDL.DXA.Modules.FlexLayout
 {
+    /// <summary>
+    /// Area registration for FlexLayout module
+    /// </summary>
     public class FlexLayoutAreaRegistration : BaseAreaRegistration
     {
         public override string AreaName

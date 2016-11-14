@@ -6,6 +6,9 @@ using System.Web;
 
 namespace SDL.DXA.Modules.FlexLayout.Models
 {
+    /// <summary>
+    /// Column Layout Container
+    /// </summary>
     [SemanticEntity(EntityName = "ColumnLayoutContainer", Vocab = CoreVocabulary, Prefix = "c")]
     public class ColumnLayoutContainer : LayoutContainer
     {

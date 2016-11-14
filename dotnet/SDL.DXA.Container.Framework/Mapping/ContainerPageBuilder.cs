@@ -19,8 +19,6 @@ namespace SDL.DXA.Container.Framework.Mapping
     {
         public void BuildPageModel(ref PageModel pageModel, DD4T.ContentModel.IPage page, IEnumerable<DD4T.ContentModel.IPage> includes, Localization localization)
         {
-            Log.Info("Container Framework page builder triggered...");
-
             var containers = new List<AbstractContainerModel>();
 
             // Get absolute order of the different container items
@@ -33,7 +31,6 @@ namespace SDL.DXA.Container.Framework.Mapping
                 if (cp.ComponentTemplate.MetadataFields.ContainsKey("regionName"))
                 {
                     string regionName = (string) cp.ComponentTemplate.MetadataFields["regionName"].Values[0];
-                    Log.Info("Container item region name: " + regionName);
                     IList<int> orderList = null;
                     regionAbsoluteOrder.TryGetValue(regionName, out orderList);
                     if (orderList == null)
@@ -65,7 +62,6 @@ namespace SDL.DXA.Container.Framework.Mapping
                 {
                     if (entity is AbstractContainerModel )
                     {
-                        Log.Info("Found a container model...");
                         AbstractContainerModel container = (AbstractContainerModel) entity;
 
                         // Override region name using MVC route values
@@ -79,7 +75,6 @@ namespace SDL.DXA.Container.Framework.Mapping
                         // TODO: if no container region name -> should we skip this container then???
                         try
                         {
-                            Log.Info("Creating a container region...");
                             container.Region = new ContainerRegionModel(container);
                         }
                         catch (DxaException e)
