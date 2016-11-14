@@ -1,0 +1,68 @@
+﻿@model TitledEntityContainer
+<article class="rich-text" @Html.DxaEntityMarkup()>
+    <div class="content" @Html.DxaRegionMarkup(Model.Region)>
+        @if (Model.Count > 0)
+        {
+            var panelId = Model.Id + "_";
+           
+            <div class="panel panel-default">
+                <div class="panel-body tab-container">
+                    @* Tab dropdown *@
+                    <div class="dropdown visible-xs">
+                        <select class="tab-group form-control" data-toggle="tab">
+                            @{ 
+                                var index = 0;
+                            }
+                            @foreach (var titledEntity in Model.TitledEntities)
+                            {
+                                <option value="#@(panelId)_@(index)" data-toggle="tab">@titledEntity.Title</option>
+                                index++;
+                            }
+                        </select>
+                    </div>
+                    @* Tab tips *@
+                    <ul class="tab-group nav nav-tabs hidden-xs">
+                        @{ 
+                            index = 0;
+                        }
+                        @foreach (var titledEntity in Model.TitledEntities)
+                        {
+                            <li class="@(index == 0 ? "active" : string.Empty)" @Html.DxaEntityMarkup(titledEntity.Entity)>
+                                <a href="#@(panelId)_@(index)"
+                                    data-toggle="tab" @Html.DxaPropertyMarkup(titledEntity.Entity, titledEntity.FieldName)>@titledEntity.Title</a>
+                            </li>
+                            index++;
+                        }
+                    </ul>
+                    @* Tab panes *@
+                    <div class="tab-content">
+                        @{ 
+                            index = 0; 
+                        }
+                        @foreach (var entity in Model.Region.Entities)
+                        {
+                            <div class="tab-pane @(index == 0 ? "active" : string.Empty)" id="@(panelId)_@(index)">
+                                @Html.DxaEntity(entity)
+                            </div>
+                            index++;
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            @* Show a visual XPM drop zone *@
+            <ul class="tab-group nav nav-tabs hidden-xs" style="border-bottom: none; margin-top: 4px;">
+                <li class="active">
+                    <a href="#@(Model.Id)_0"
+                       data-toggle="tab" style="border-style: dashed; border-color: lightgrey; border-width: 2px; color: lightgrey;">Tab</a>
+                </li>
+            </ul>
+            <div class="tab-content" style="height: 150px;border-style: dashed; border-color: lightgrey; border-width: 2px; margin-top: -12px;">
+                <div class="tab-pane active" id="@(Model.Id)_0">
+                </div>
+            </div>
+        }
+    </div>
+</article>

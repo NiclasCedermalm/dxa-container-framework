@@ -1,0 +1,45 @@
+﻿@model TitledEntityContainer
+<article class="rich-text" @Html.DxaEntityMarkup()>
+    <div class="content" @Html.DxaRegionMarkup(Model.Region)>
+        @if (Model.Region.Entities.Count > 0)
+        {
+            <div class="panel-group responsive-accordion" id="@Model.Id">
+                @{ 
+                    var index = 0;
+                }
+                @foreach (var titledEntity in Model.TitledEntities)
+                {
+                    var collapseId = Model.Id + "_" + index;
+                    <div class="panel panel-default">
+                        <div class="panel-heading" data-toggle="collapse" data-target="#@collapseId"
+                             data-parent="#@Model.Id" @Html.DxaEntityMarkup(titledEntity.Entity)>
+                            <h4 class="panel-title" @Html.DxaPropertyMarkup(titledEntity.Entity, titledEntity.FieldName)>@titledEntity.Title</h4>
+                        </div>
+                        <div id="@collapseId" class="panel-collapse collapse @(index == 0 ? "in" : string.Empty)">
+                            <div class="panel-body">
+                                @Html.DxaEntity(titledEntity.Entity)
+                            </div>
+                        </div>
+                    </div>
+                   index++;
+                }
+            </div>
+        }
+        else
+        { 
+            @* Show a visual XPM drop zone *@
+            <div class="panel-group responsive-accordion" id="@Model.Id">
+                <div class="panel panel-default">
+                    <div class="panel-heading" data-toggle="collapse" data-target="#@(Model.Id)_0"
+                         data-parent="#@Model.Id" style="border-style: dashed; border-color: lightgrey; border-width: 2px;">
+                        <h4 class="panel-title" style="color: lightgrey;">Accordion</h4>
+                    </div>
+                    <div class="panel-heading" data-toggle="collapse" data-target="#@(Model.Id)_1"
+                         data-parent="#@Model.Id" style="border-style: dashed; border-color: lightgrey; border-width: 2px;">
+                        <h4 class="panel-title" style="color: lightgrey;">&nbsp;</h4>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</article>

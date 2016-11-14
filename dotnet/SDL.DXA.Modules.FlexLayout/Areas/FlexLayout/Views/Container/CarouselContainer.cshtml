@@ -1,0 +1,65 @@
+﻿@model CarouselContainer
+@{ 
+    var carouselId = "carousel-" + Model.Id;
+}
+
+<div @Html.DxaEntityMarkup()>
+    @if (Model.Count > 0)
+    {
+        <div id="@carouselId" class="carousel slide" data-ride="carousel" data-interval="@Model.Interval"  @Html.DxaRegionMarkup(Model.Region)>
+            <ol class="carousel-indicators">
+                @{ 
+                    int index = 0;
+                }
+                @foreach (var indicator in Model.Region.Entities)
+                {
+                    <li data-target="#@carouselId" data-slide-to="@index" class="@(index == 0 ? "active" : String.Empty)" @Html.DxaEntityMarkup(indicator)>
+                    </li>
+                    index++;
+                }
+            </ol>
+            <div class="carousel-inner">
+                @{ 
+                    index = 0;
+                }
+                @foreach (var entity in Model.Region.Entities)
+                {
+                    if (index == 0)
+                    {
+                        <div class="item active">
+                            @Html.DxaEntity(entity)
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="item">
+                            @Html.DxaEntity(entity)
+                        </div>
+                    }
+                    index++;
+                }
+            </div>
+            <a class="left carousel-control" href="#@carouselId" data-slide="prev">
+                <i class='fa fa-chevron-left carousel-icon-left'></i>
+            </a>
+            <a class="right carousel-control" href="#@carouselId" data-slide="next">
+                <i class='fa fa-chevron-right carousel-icon-right'></i>
+            </a>
+        </div>
+    }
+    else
+    {       
+        @* Show a visual XPM drop zone *@
+        <div id="@carouselId" class="carousel slide" data-ride="carousel" style="border-width: 2px; border-color: lightgrey; height: 300px; border-style: dashed;background: none;" @Html.DxaRegionMarkup(Model.Region)>
+            <ol class="carousel-indicators"></ol>
+            <div class="carousel-inner"></div>
+            <a class="left carousel-control" href="#@carouselId" data-slide="prev">
+                <i class='fa fa-chevron-left carousel-icon-left'></i>
+            </a>
+            <a class="right carousel-control" href="#@carouselId" data-slide="next">
+                <i class='fa fa-chevron-right carousel-icon-right'></i>
+            </a>
+        </div>
+
+    }
+</div> 

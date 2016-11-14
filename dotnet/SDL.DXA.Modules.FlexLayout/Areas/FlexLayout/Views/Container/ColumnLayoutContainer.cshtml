@@ -1,0 +1,33 @@
+﻿@model ColumnLayoutContainer
+<div style="padding-top: 4px;" @Html.DxaEntityMarkup()>
+    @{
+        var cols = WebRequestContext.ScreenWidth == ScreenWidth.Small ? 2 : Model.Columns;
+        var rows = (int)Math.Ceiling(Model.Region.Entities.Count / (double)cols);
+        var containerSize = 12 / cols;
+    }
+
+    @for (int row = 0; row < rows; row++)
+    {
+        <div class="row" @Html.DxaRegionMarkup(Model.Region)>
+            @for (int col = 0; col < cols && (cols * row + col < Model.Region.Entities.Count); col++)
+            {
+                <div class="col-sm-6 @(Model.Columns > 2 ? "col-md-"+containerSize : "")">
+                    @Html.DxaEntity(Model.Region.Entities[cols * row + col], containerSize: 12 / cols)
+                </div>
+            }
+        </div>
+    }
+    @if (Model.Count == 0)
+    {
+        @** Show a visual XPM drop zone *@
+        <div class="row"  @Html.DxaRegionMarkup(Model.Region)>
+            @for (int col=0; col < Model.Columns; col++)
+            {
+                <div class="col-sm-6 @(Model.Columns > 2 ? "col-md-"+containerSize : "")">
+                    <div style = "height: 300px; border-style: dashed; border-color: lightgrey; border-width: 2px;" ></div>
+                 </div>
+            }
+        </div>
+    }
+
+</div>

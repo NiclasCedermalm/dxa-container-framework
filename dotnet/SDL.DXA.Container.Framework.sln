@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDL.DXA.Container.Framework", "SDL.DXA.Container.Framework\SDL.DXA.Container.Framework.csproj", "{0A046B9C-AF8F-48EF-A260-26FFBE7C4C07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDL.DXA.Modules.FlexLayout", "SDL.DXA.Modules.FlexLayout\SDL.DXA.Modules.FlexLayout.csproj", "{9460104F-6B97-4D33-BB87-190D36F3BF04}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A046B9C-AF8F-48EF-A260-26FFBE7C4C07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A046B9C-AF8F-48EF-A260-26FFBE7C4C07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A046B9C-AF8F-48EF-A260-26FFBE7C4C07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A046B9C-AF8F-48EF-A260-26FFBE7C4C07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9460104F-6B97-4D33-BB87-190D36F3BF04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9460104F-6B97-4D33-BB87-190D36F3BF04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9460104F-6B97-4D33-BB87-190D36F3BF04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9460104F-6B97-4D33-BB87-190D36F3BF04}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
