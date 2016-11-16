@@ -62,7 +62,7 @@ namespace SDL.DXA.Extensions.Container
         /// <returns>bool</returns>
         static public bool IsContainer(ComponentPresentation componentPresentation)
         {
-            return GetContainerName(componentPresentation.ComponentTemplate) != null;
+            return ExtractContainerIndex(componentPresentation.ComponentTemplate.Id) == -1 && GetContainerName(componentPresentation.ComponentTemplate) != null;
         }
 
         /// <summary>
@@ -178,7 +178,12 @@ namespace SDL.DXA.Extensions.Container
         /// <returns></returns>
         public bool Owns(ComponentPresentation componentPresentation)
         {
-            if (componentPresentation.ComponentTemplate.Metadata != null && componentPresentation.ComponentTemplate.MetadataSchema != null)
+            int containerIndex = ExtractContainerIndex(componentPresentation.ComponentTemplate.Id);
+            if ( containerIndex != -1 )
+            {
+                return containerIndex == this.Index;
+            }
+            else if (componentPresentation.ComponentTemplate.Metadata != null && componentPresentation.ComponentTemplate.MetadataSchema != null)
             {
                 var metadata = new ItemFields(componentPresentation.ComponentTemplate.Metadata, componentPresentation.ComponentTemplate.MetadataSchema);
                 if (metadata.Contains("regionName"))

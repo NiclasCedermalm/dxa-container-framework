@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Tridion.ContentManager;
 using Tridion.ContentManager.CommunicationManagement;
 using Tridion.ContentManager.Extensibility;
@@ -34,20 +35,27 @@ namespace SDL.DXA.Extensions.Container
         {      
             if ( IsContainerPage(page) )
             {
-                IList<Container> containers = Container.GetContainers(page);
-                if (containers.Count > 0)
+                try
                 {
-                    var foundComponentInWrongContainer = ProcessComponentPresentationsInWrongContainer(page, containers);
-                    if ( !foundComponentInWrongContainer )
+                    IList<Container> containers = Container.GetContainers(page);
+                    if (containers.Count > 0)
                     {
-                        var containerMetadata = ContainerMetadata.Load(page);
-                        if ( containerMetadata != null && containerMetadata.Count != containers.Count )
+                        var foundComponentInWrongContainer = ProcessComponentPresentationsInWrongContainer(page, containers);
+                        if (!foundComponentInWrongContainer)
                         {
-                            ProcessContainersOnWrongLocation(containers, page, containerMetadata);
-                        }                       
+                            var containerMetadata = ContainerMetadata.Load(page);
+                            if (containerMetadata != null && containerMetadata.Count != containers.Count)
+                            {
+                                ProcessContainersOnWrongLocation(containers, page, containerMetadata);
+                            }
+                        }
+                        ProcessComponentTemplates(page.ComponentPresentations);
+                        ContainerMetadata.Save(page, containers);
                     }
-                    ProcessComponentTemplates(page.ComponentPresentations);
-                    ContainerMetadata.Save(page, containers);
+                }
+                catch ( Exception e )
+                {
+                    Log.Error("Error when processing container page: " + e);
                 }
             }
         }
@@ -121,7 +129,6 @@ namespace SDL.DXA.Extensions.Container
         /// <param name="oldContainers"></param>
         static public void ProcessContainersOnWrongLocation(IList<Container> newContainers, Page page, IList<ContainerMetadata> containerMetadataList)
         {
- 
             for ( int i=0; i < newContainers.Count; i++ )
             {
                 var container = newContainers[i];
