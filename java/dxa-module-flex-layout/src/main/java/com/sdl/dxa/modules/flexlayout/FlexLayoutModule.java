@@ -1,13 +1,12 @@
 package com.sdl.dxa.modules.flexlayout;
 
+import com.sdl.dxa.modules.core.model.entity.Teaser;
 import com.sdl.dxa.modules.flexlayout.model.CarouselContainer;
 import com.sdl.dxa.modules.flexlayout.model.ColumnLayoutContainer;
-import com.sdl.dxa.modules.flexlayout.model.LayoutContainer;
 import com.sdl.dxa.modules.flexlayout.model.TitledEntityContainer;
 import com.sdl.webapp.common.api.mapping.views.AbstractInitializer;
 import com.sdl.webapp.common.api.mapping.views.RegisteredViewModel;
 import com.sdl.webapp.common.api.mapping.views.RegisteredViewModels;
-import com.sdl.webapp.common.api.model.entity.Teaser;
 import org.springframework.stereotype.Component;
 
 /**
@@ -24,6 +23,8 @@ import org.springframework.stereotype.Component;
         @RegisteredViewModel(viewName = "TabContainer", modelClass = TitledEntityContainer.class),
         @RegisteredViewModel(viewName = "AccordionContainer", modelClass =  TitledEntityContainer.class),
         @RegisteredViewModel(viewName = "CarouselContainer", modelClass = CarouselContainer.class),
+
+        // TODO: Divide this into two modules -> generic + example views
 
         // Entity Views
         //

@@ -17,7 +17,7 @@
                         <div class="panel-heading" data-toggle="collapse" data-target="#${collapseId}"
                              data-parent="#${accordionId}">
                             <xpm:entity entity="${titledEntity.entity}"/>
-                            <h4 class="panel-title" ${markup.property(titledEntity.entity, "headline")}>${titledEntity.title}</h4>
+                            <h4 class="panel-title" ${markup.property(titledEntity.entity, titledEntity.fieldName)}>${titledEntity.title}</h4>
                         </div>
                         <div id="${collapseId}" class="panel-collapse collapse ${status.index == 0 ? 'in' : ''}">
                             <div class="panel-body">

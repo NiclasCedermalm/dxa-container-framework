@@ -16,7 +16,7 @@
                     <div class="dropdown visible-xs">
                         <select class="tab-group form-control" data-toggle="tab">
                             <c:forEach var="titledEntity" items="${container.titledEntities}" varStatus="status">
-                                <c:set var="ident" value="tab${panelId}_${status.index}"/>
+                                <c:set var="ident" value="${panelId}_${status.index}"/>
                                 <option value="#${ident}" data-toggle="tab">${titledEntity.title}</option>
                             </c:forEach>
                         </select>
@@ -26,7 +26,7 @@
                         <c:forEach var="titledEntity" items="${container.titledEntities}" varStatus="status">
                             <li class="${status.index == 0 ? 'active' : ''}">
                                 <xpm:entity entity="${titledEntity.entity}"/>
-                                <c:set var="ident" value="tab${panelId}_${status.index}"/>
+                                <c:set var="ident" value="${panelId}_${status.index}"/>
                                 <a href="#${ident}"
                                    data-toggle="tab" ${markup.property(titledEntity.entity, titledEntity.fieldName)}>${titledEntity.title}</a>
                             </li>
@@ -35,7 +35,7 @@
                         <%-- Tab panes --%>
                     <div class="tab-content">
                         <c:forEach var="entity" items="${container.region.entities}" varStatus="status">
-                            <c:set var="ident" value="tab${panelId}_${status.index}"/>
+                            <c:set var="ident" value="${panelId}_${status.index}"/>
                             <div class="tab-pane ${status.index == 0 ? 'active' : ''}" id="${ident}">
                                 <dxa:entity entity="${entity}"/>
                             </div>

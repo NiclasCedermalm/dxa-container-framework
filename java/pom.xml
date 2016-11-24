@@ -37,8 +37,8 @@
 
     <properties>
       <java-version>1.8</java-version>
-      <dxa.version>1.5.0</dxa.version>
-      <dxa-release-branch>release/1.5</dxa-release-branch>
+      <dxa.version>1.6.0</dxa.version>
+      <dxa-release-branch>release/1.6</dxa-release-branch>
       <spring.version>3.1.4.RELEASE</spring.version>
    </properties>
 
@@ -56,6 +56,14 @@
            <dependency>
                <groupId>com.sdl.dxa</groupId>
                <artifactId>dxa-bom</artifactId>
+               <version>${dxa.version}</version>
+               <scope>import</scope>
+               <type>pom</type>
+           </dependency>
+
+           <dependency>
+               <groupId>com.sdl.dxa.modules</groupId>
+               <artifactId>dxa-bom-modules</artifactId>
                <version>${dxa.version}</version>
                <scope>import</scope>
                <type>pom</type>

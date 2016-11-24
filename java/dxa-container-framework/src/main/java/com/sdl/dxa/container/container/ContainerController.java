@@ -3,8 +3,10 @@ package com.sdl.dxa.container.container;
 import com.sdl.dxa.container.model.AbstractContainerModel;
 import com.sdl.webapp.common.api.WebRequestContext;
 import com.sdl.webapp.common.api.content.ContentProviderException;
+import com.sdl.webapp.common.api.model.EntityModel;
 import com.sdl.webapp.common.api.model.MvcData;
 import com.sdl.webapp.common.controller.BaseController;
+import com.sdl.webapp.common.controller.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,6 +42,20 @@ public class ContainerController extends BaseController {
 
         final MvcData mvcData = container.getMvcData();
         return viewNameResolver.resolveView(mvcData, "Container");
+    }
+
+    /**
+     * Get the entity from the request
+     * @param request
+     * @param entityId
+     * @return
+     */
+    protected EntityModel getEntityFromRequest(HttpServletRequest request, String entityId) {
+        final EntityModel entity = (EntityModel) request.getAttribute("_entity_");
+        if (entity == null) {
+            throw new NotFoundException("Entity not found in request: " + entityId);
+        }
+        return entity;
     }
 
 }
