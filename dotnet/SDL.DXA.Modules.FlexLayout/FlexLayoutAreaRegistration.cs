@@ -1,4 +1,4 @@
-﻿using Sdl.Web.Common.Models;
+﻿using Sdl.Web.Modules.Core.Models;
 using Sdl.Web.Mvc.Configuration;
 using SDL.DXA.Modules.FlexLayout.Models;
 using System;
