@@ -4,8 +4,8 @@ Install CMS modules and content types
 There are a number of CMS packages that can be installed in SDL Web 8.
 The following packages are provided:
 
-* FlexLayout-Module_v1.0.1.zip - FlexLayout CMS module with needed schemas and templates
-* FlexLayout-ContentTypes_v1.0.1.zip - XPM Content types for various container components 
+* FlexLayout-Module_v1.1.0.zip - FlexLayout CMS module with needed schemas and templates
+* FlexLayout-ContentTypes_v1.1.0.zip - XPM Content types for various container components
 
 Instructions
 -------------
@@ -24,8 +24,8 @@ The CMS import script is generic and is used for all packages. The syntax for ca
 
 To setup CMS data the packages needs to be imported in the following order:
 
-1. Setup modules: `.\cms-import.ps1 -moduleZip FlexLayout-Module-v1.0.1.zip`
-2. Setup content types: `.\cms-import.ps1 -moduleZip FlexLayout-ContentTypes-v1.0.1.zip`
+1. Setup modules: `.\cms-import.ps1 -moduleZip FlexLayout-Module-v1.1.0.zip`
+2. Setup content types: `.\cms-import.ps1 -moduleZip FlexLayout-ContentTypes-v1.1.0.zip`
 
 #### Setup the new content types manually
 
@@ -55,8 +55,3 @@ If you run into problems when importing the content types package, you can setup
 10. Go into ‘Content Type Mappings’ and select ‘110 DXA Site Type’
 11. Go into each page template (Content, Content Type Without Navigation, Home Page, Section page etc) and select the new content types and press ‘Apply.
 12. Now the content types should be available through XPM
-
-    
-
-
-
