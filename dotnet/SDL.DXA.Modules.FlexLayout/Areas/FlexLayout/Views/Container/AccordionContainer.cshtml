@@ -1,5 +1,5 @@
 ﻿@model TitledEntityContainer
-<article class="rich-text" @Html.DxaEntityMarkup()>
+<article class="container-accordion rich-text" @Html.DxaEntityMarkup()>
     <div class="content" @Html.DxaRegionMarkup(Model.Region)>
         @if (Model.Region.Entities.Count > 0)
         {

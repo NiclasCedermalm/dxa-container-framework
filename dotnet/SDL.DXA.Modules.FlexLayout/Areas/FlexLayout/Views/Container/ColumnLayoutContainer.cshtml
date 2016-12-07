@@ -1,5 +1,5 @@
 ﻿@model ColumnLayoutContainer
-<div style="padding-top: 4px;" @Html.DxaEntityMarkup()>
+<div class="container-column-layout" style="padding-top: 4px;" @Html.DxaEntityMarkup()>
     @{
         var cols = WebRequestContext.ScreenWidth == ScreenWidth.Small ? 2 : Model.Columns;
         var rows = (int)Math.Ceiling(Model.Region.Entities.Count / (double)cols);
