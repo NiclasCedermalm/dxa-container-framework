@@ -28,6 +28,17 @@ Example of a page with containers:
 
 The framework requires a CME extension to be fully functional in SDL Web Experience Manager. DXA generates drop zones with hints on what container they represents. As Experience Manager drops new components at end end of the page (for previously empty drop zones) something is needed to rearrange the order of the page object so it becomes a well-formed container page.
 
+The container framework comes with the following:
+
+* CME extension
+
+* Modules for DXA.Java:
+  - dxa-container-framework - The container framework for DXA.Java
+  - dxa-module-flex-layout - DXA.Java module with example container implementations using vanilla DXA views
+* Modules for DXA.NET:
+  - SDL.DXA.Container.Framework - The container framework for DXA.Net
+  - SDL.DXA.Modules.FlexLayout - DXA.NET module with example container implementations using vanilla DXA views
+
 CMS Setup
 -----------
 
@@ -47,15 +58,34 @@ After that restart the services 'SDL Web Content Manager Service Host' and 'SDL 
 DXA.Java Setup
 ---------------
 
-T.B.D.
+To setup the FlexLayout module for DXA.Java, please refer to [Flex Layout DXA Module](./java/dxa-module-flex-layout/README.md).
 
 
 DXA.NET Setup
 ---------------
 
-T.B.D.
+To setup the FlexLayout module for DXA.NET, please refer to [DXA Container Framework for .NET](./dotnet/README.md).
 
-<modelBuilderPipeline>
-    <add type="Sdl.Web.Tridion.Mapping.DefaultModelBuilder, Sdl.Web.Tridion" />
-	<add type="SDL.DXA.Container.Framework.Mapping.ContainerPageBuilder, SDL.DXA.Container.Framework" />
-  </modelBuilderPipeline>
+Branching model
+----------------
+
+We intend to follow Gitflow (http://nvie.com/posts/a-successful-git-branching-model/) with the following main branches:
+
+ - master - Stable
+ - develop - Unstable
+ - release/x.y - Release version x.y
+
+Please submit your pull requests on develop. In the near future we intend to push our changes to develop and master from our internal repositories, so you can follow our development process.
+
+
+License
+---------
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and limitations under the License.
