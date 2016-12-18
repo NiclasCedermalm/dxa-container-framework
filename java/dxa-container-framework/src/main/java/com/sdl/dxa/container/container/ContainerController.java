@@ -25,7 +25,7 @@ import static com.sdl.webapp.common.controller.RequestAttributeNames.REGION_MODE
  * @author nic
  */
 @Controller
-@RequestMapping("/system/mvc/Container/ContainerController")
+@RequestMapping("/system/mvc/Container/Container")
 public class ContainerController extends BaseController {
 
     @Autowired
