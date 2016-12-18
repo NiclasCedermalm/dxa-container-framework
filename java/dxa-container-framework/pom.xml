@@ -16,11 +16,11 @@
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>DXA Container Framework</description>
-    <url>https://github.com/NiclasCedermalm/modules4dxa-java</url>
+    <url>https://github.com/NiclasCedermalm/dxa-container-framework</url>
 
     <scm>
         <url>https://github.com/NiclasCedermalm/modules4dxa-java</url>
-        <connection>scm:git:https://github.com/NiclasCedermalm/modules4dxa-java.git</connection>
+        <connection>scm:git:https://github.com/NiclasCedermalm/dxa-container-framework.git</connection>
     </scm>
 
     <licenses>
