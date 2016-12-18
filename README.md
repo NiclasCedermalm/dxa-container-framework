@@ -3,12 +3,11 @@ DXA Container Framework
 
 
 The DXA Container Framework is framework that provides support for container components in SDL Web & DXA.
-The container is a mixture of a region and a component. The container is basically a component that can be drag&dropped onto a page.
-This creates an inner XPM region where other components can be dropped.
+The container is a mixture of a region and a component. The container is basically a component that can be drag & dropped onto a page. This creates an inner XPM region where other components can be dropped.
 Examples of typical containers:
 
 * Image container with overlays
-* Column layout
+* Column layouts (e.g. 3-column layout)
 * Tab
 * Accordion
 * Carousel
@@ -26,12 +25,16 @@ Example of a page with containers:
 - Teaser #2.1
 - Teaser #2.2
 
+Comparing traditional regions with containers:
+* Region are a course-grained area on a page, such as main area, side area, header, footer etc. They are managed by the page template/view.
+* Containers are more fine-grained areas on a page which can be managed by editors such as adding new layouts on the page, add components to the layouts and move components between layouts.
+
 The framework requires a CME extension to be fully functional in SDL Web Experience Manager. DXA generates drop zones with hints on what container they represents. As Experience Manager drops new components at end end of the page (for previously empty drop zones) something is needed to rearrange the order of the page object so it becomes a well-formed container page.
 
 The container framework comes with the following:
 
 * CME extension
-
+* CMS import scripts for the example module 'FlexLayout'
 * Modules for DXA.Java:
   - dxa-container-framework - The container framework for DXA.Java
   - dxa-module-flex-layout - DXA.Java module with example container implementations using vanilla DXA views
@@ -42,8 +45,8 @@ The container framework comes with the following:
 CMS Setup
 -----------
 
-The DXA Container Framework requires you install an extension in SDL Web. It make sure all drag&dropped components in XPM ends up in the correct place.
-Either compile the C# code in the src/cms/container-gravity-extension directory or download the pre-compiled DDL here:
+The DXA Container Framework requires you install an extension in SDL Web. It make sure all drag & dropped components in XPM ends up in the correct place.
+Either compile the C# code in the 'cms/container-gravity-extension' directory or download the pre-compiled DDL here:
 [container-gravity-extension-v1.1.0.dll](https://github.com/NiclasCedermalm/dxa-container-framework/raw/master/cms/container-gravity-extension/compiled/container-gravity-extension-v1.1.0.dll)
 
 Upload the DLL to your SDL Web server and place it somewhere local on the server.
