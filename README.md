@@ -42,6 +42,11 @@ The container framework comes with the following:
   - SDL.DXA.Container.Framework - The container framework for DXA.Net
   - SDL.DXA.Modules.FlexLayout - DXA.NET module with example container implementations using vanilla DXA views
 
+Prerequisites
+----------------
+
+The framework requires DXA 1.7 which includes support for SDL Web 8 and SDL Web 8.5.
+
 CMS Setup
 -----------
 
