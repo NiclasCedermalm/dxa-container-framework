@@ -1,6 +1,6 @@
 ﻿<#
 .SYNOPSIS
-   Import E-Commerce FW DXA items into the Content Manager System.
+   Import Flex-Layout DXA items into the Content Manager System.
 .DESCRIPTION
    This script imports E-Commerce DXA items into the CMS using the CM Import/Export service and Core Service.
 .EXAMPLE
