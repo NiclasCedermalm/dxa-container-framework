@@ -7,7 +7,7 @@
     <groupId>com.sdl.dxa.container</groupId>
     <artifactId>container-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Modules for DXA.Java parent project</description>
@@ -37,8 +37,8 @@
 
     <properties>
       <java-version>1.8</java-version>
-      <dxa.version>1.6.0</dxa.version>
-      <dxa-release-branch>release/1.6</dxa-release-branch>
+      <dxa.version>1.7.0</dxa.version>
+      <dxa-release-branch>release/1.7</dxa-release-branch>
       <spring.version>3.1.4.RELEASE</spring.version>
    </properties>
 
