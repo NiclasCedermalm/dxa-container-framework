@@ -42,11 +42,18 @@ namespace SDL.DXA.Extensions.Container
                     currentContainer.pageIndex = pageIndex;
                     containers.Add(currentContainer);
                 }
-                else
+                else if ( currentContainer != null )
                 {
-                    if (currentContainer != null && currentContainer.Owns(cp)) 
+                    if (currentContainer.Owns(cp)) 
                     {
+                        Log.Info("Current container owns CP: " + cp.Component.Id);
                         ComponentPresentationInfo cpInfo = currentContainer.AddToComponentPresentationList(cp, pageIndex);
+                    }
+                    else
+                    {
+                        // Clear the container reference when non-containerized content is found
+                        //
+                        currentContainer = null;
                     }
                 }
                 pageIndex++; 
@@ -178,6 +185,7 @@ namespace SDL.DXA.Extensions.Container
         /// <returns></returns>
         public bool Owns(ComponentPresentation componentPresentation)
         {
+            Log.Info("Checking ownership of CP: " + componentPresentation.Component.Id);
             int containerIndex = ExtractContainerIndex(componentPresentation.ComponentTemplate.Id);
             if ( containerIndex != -1 )
             {
@@ -188,9 +196,10 @@ namespace SDL.DXA.Extensions.Container
                 var metadata = new ItemFields(componentPresentation.ComponentTemplate.Metadata, componentPresentation.ComponentTemplate.MetadataSchema);
                 if (metadata.Contains("regionName"))
                 {
-                    TextField regionName = (TextField)metadata["regionName"];
+                    TextField regionName = (TextField)metadata["regionName"];                 
                     if (regionName.Values.Count() > 0 )
                     {
+                        Log.Info("Region name: " + regionName.Value + ", current container region name: " + this.containerName);
                         return regionName.Value.Equals(this.containerName);
                     }
                 }

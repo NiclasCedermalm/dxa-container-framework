@@ -35,9 +35,12 @@ namespace SDL.DXA.Extensions.Container
         {      
             if ( IsContainerPage(page) )
             {
+                Log.Info("Is a container page...");
+
                 try
                 {
                     IList<Container> containers = Container.GetContainers(page);
+                    Log.Info("Container count: " + containers.Count);
                     if (containers.Count > 0)
                     {
                         var foundComponentInWrongContainer = ProcessComponentPresentationsInWrongContainer(page, containers);
@@ -85,20 +88,28 @@ namespace SDL.DXA.Extensions.Container
         /// 
         static public bool ProcessComponentPresentationsInWrongContainer(Page page, IList<Container> containers)
         {
+            Log.Info("Processing component presentations in wrong contaners...");
             int pageIndex = 0;
             foreach ( var componentPresentation in page.ComponentPresentations )
             {
                 int containerIndex = Container.ExtractContainerIndex(componentPresentation.ComponentTemplate.Id);
                 if ( containerIndex != -1 )
                 {
+                    Log.Info("Found a container item: " + componentPresentation.Component.Id);
+
                     var selectedContainer = containers[containerIndex - 1];
                     var existingCp = selectedContainer.GetComponentPresentation(pageIndex);
                     if ( existingCp != null && existingCp.ComponentPresentation == componentPresentation )
                     {
+
+                        Log.Info("Component presentation already in correct container. Skipping...");
+
                         // Component presentation already in correct container. Skipping...
                         //
                         break;
                     }
+
+                    Log.Info("Moving the container item...");
 
                     page.ComponentPresentations.RemoveAt(pageIndex);
                 
